@@ -1,10 +1,9 @@
 FROM umanit/php:7.2
 
-RUN apk --no-cache add curl git subversion openssh openssl mercurial zlib-dev
+RUN apk --no-cache add curl git subversion openssh openssl mercurial zlib-dev \
+    && mkdir -p /var/log/php
 
-RUN echo "memory_limit = -1" > "$PHP_INI_DIR/conf.d/memory-limit.ini" \
-    && echo "date.timezone = Europe/Paris" > "$PHP_INI_DIR/conf.d/date_timezone.ini" \
-    && echo -e "upload_max_filesize = 200M\npost_max_size = 500M" > "$PHP_INI_DIR/conf.d/max-sizes.ini"
+COPY ./confs/ /usr/local/etc/
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /tmp

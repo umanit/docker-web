@@ -20,7 +20,7 @@ The following tools are installed:
 * zlib-dev
 
 The following PHP configuration is made:
-* `memory_limit = -1`
+* `memory_limit = 256M`
 * `date.timezone = Europe/Paris`
 * `upload_max_filesize = 200M`
 * `post_max_size = 500M`
