@@ -10,7 +10,7 @@
 Web images based on [umanit/php](https://hub.docker.com/r/umanit/php/) images.
 
 The following tools are installed:
-* composer (v1.6.4)
+* composer (v1.6.5)
 * curl
 * git
 * subversion
@@ -21,6 +21,7 @@ The following tools are installed:
 
 The following PHP configuration is made:
 * `memory_limit = 256M`
+  * For composer, the limit is `-1`
 * `date.timezone = Europe/Paris`
 * `upload_max_filesize = 200M`
 * `post_max_size = 500M`
