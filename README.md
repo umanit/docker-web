@@ -10,7 +10,7 @@
 Web images based on [umanit/php](https://hub.docker.com/r/umanit/php/) images.
 
 The following tools are installed:
-* composer (v1.6.5)
+* composer (v1.7.2)
 * curl
 * git
 * subversion
