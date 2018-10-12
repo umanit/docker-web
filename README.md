@@ -26,5 +26,11 @@ The following PHP configuration is made:
 * `upload_max_filesize = 200M`
 * `post_max_size = 500M`
 
+## Builds commands
+* `docker build --no-cache -t umanit/web:5.6 -f ./5.6/Dockerfile . && docker push umanit/web:5.6`
+* `docker build --no-cache -t umanit/web:7.0 -f ./7.0/Dockerfile . && docker push umanit/web:7.0`
+* `docker build --no-cache -t umanit/web:7.1 -f ./7.1/Dockerfile . && docker push umanit/web:7.1`
+* `docker build --no-cache -t umanit/web:7.2 -f ./7.2/Dockerfile . && docker push umanit/web:7.2`
+
 ## Notes
 We used [composer Dockerfile](https://github.com/composer/docker/blob/master/Dockerfile.template).
