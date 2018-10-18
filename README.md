@@ -27,6 +27,8 @@ The following PHP configuration is made:
 * `post_max_size = 500M`
 
 ## Builds commands
+* `make all`
+* **OR**
 * `docker build --no-cache -t umanit/web:5.6 -f ./5.6/Dockerfile . && docker push umanit/web:5.6`
 * `docker build --no-cache -t umanit/web:7.0 -f ./7.0/Dockerfile . && docker push umanit/web:7.0`
 * `docker build --no-cache -t umanit/web:7.1 -f ./7.1/Dockerfile . && docker push umanit/web:7.1`
