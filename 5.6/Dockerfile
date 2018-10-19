@@ -23,4 +23,8 @@ RUN curl -s -f -L -o /tmp/installer.php https://raw.githubusercontent.com/compos
  && composer --ansi --version --no-interaction \
  && rm -rf /tmp/* /tmp/.htaccess
 
+ # forward request and error logs to docker log collector
+ RUN ln -sf /dev/stdout /var/log/php/fpm-access.log \
+ 	&& ln -sf /dev/stderr /var/log/php/fpm-error.log
+
 CMD ["php-fpm"]
