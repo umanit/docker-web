@@ -8,7 +8,6 @@ else
 	docker build --no-cache -q -t umanit/web:$(tag) -f ./$(tag)/Dockerfile .
 endif
 
-
 push:
 ifndef tag
 	docker push umanit/web:5.6
