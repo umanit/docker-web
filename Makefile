@@ -1,21 +1,29 @@
+TAGS=5.6 7.0 7.1 7.2
+
+define build_image
+	docker build --no-cache -t umanit/web:$(1) -f ./$(1)/Dockerfile .
+endef
+
+define push_image
+	docker push umanit/web:$(1)
+endef
+
 build:
 ifndef tag
-	docker build --no-cache -q -t umanit/web:5.6 -f ./5.6/Dockerfile .
-	docker build --no-cache -q -t umanit/web:7.0 -f ./7.0/Dockerfile .
-	docker build --no-cache -q -t umanit/web:7.1 -f ./7.1/Dockerfile .
-	docker build --no-cache -q -t umanit/web:7.2 -f ./7.2/Dockerfile .
+	for available_tag in $(TAGS) ; do \
+		$(call build_image,$$available_tag) ; \
+	done
 else
-	docker build --no-cache -q -t umanit/web:$(tag) -f ./$(tag)/Dockerfile .
+	$(call build_image,$(tag))
 endif
 
 push:
 ifndef tag
-	docker push umanit/web:5.6
-	docker push umanit/web:7.0
-	docker push umanit/web:7.1
-	docker push umanit/web:7.2
+	for available_tag in $(TAGS) ; do \
+		$(call push_image,$$available_tag) ; \
+	done
 else
-	docker push umanit/web:$(tag)
+	$(call push_image,$(tag))
 endif
 
 all:
