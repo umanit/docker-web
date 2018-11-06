@@ -1,3 +1,5 @@
+ARG ENABLE_XDEBUG
+
 FROM umanit/php:5.6
 
 RUN apk --no-cache add curl git subversion openssh openssl mercurial zlib-dev \
@@ -23,8 +25,12 @@ RUN curl -s -f -L -o /tmp/installer.php https://raw.githubusercontent.com/compos
  && composer --ansi --version --no-interaction \
  && rm -rf /tmp/* /tmp/.htaccess
 
- # forward request and error logs to docker log collector
- RUN ln -sf /dev/stdout /var/log/php/fpm-access.log \
- 	&& ln -sf /dev/stderr /var/log/php/fpm-error.log
+# forward request and error logs to docker log collector
+RUN ln -sf /dev/stdout /var/log/php/fpm-access.log \
+	&& ln -sf /dev/stderr /var/log/php/fpm-error.log
+
+# add entrypoint
+COPY ./docker-entrypoint.sh /
+ENTRYPOINT ["/bin/sh", "/docker-entrypoint.sh"]
 
 CMD ["php-fpm"]
