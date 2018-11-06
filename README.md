@@ -38,5 +38,5 @@ The following PHP configuration is made:
 We used [composer Dockerfile](https://github.com/composer/docker/blob/master/Dockerfile.template).
 
 By default, xdebug extension is enable because of umanit/php. With umanit/web,
-we disable it to gain performance. If you need to use it, just set a
-ENABLE_XDEBUG environment variable to 1 before building the image.
+we disable it to gain performance. If you need to use it, just set the
+`ENABLE_XDEBUG` environment variable to `1` before building the image.
