@@ -2,14 +2,18 @@ ARG ENABLE_XDEBUG
 
 FROM umanit/php:5.6
 
-RUN apk --no-cache add curl git subversion openssh openssl mercurial zlib-dev \
+RUN apk --no-cache add bash curl git subversion openssh openssl mercurial zlib-dev \
     && mkdir -p /var/log/php
 
-COPY ./confs/ /usr/local/etc/
+# copy custom confs
+COPY ./confs/php /usr/local/etc/
+COPY ./confs/bashrc /root/.bashrc
+COPY ./confs/bashrc /home/www-data/.bashrc
+RUN chown www-data:www-data /home/www-data/.bashrc
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /tmp
-ENV COMPOSER_VERSION 1.7.2
+ENV COMPOSER_VERSION 1.8.3
 ENV COMPOSER_MEMORY_LIMIT -1
 
 RUN curl -s -f -L -o /tmp/installer.php https://raw.githubusercontent.com/composer/getcomposer.org/b107d959a5924af895807021fcef4ffec5a76aa9/web/installer \

@@ -10,7 +10,8 @@
 Web images based on [umanit/php](https://hub.docker.com/r/umanit/php/) images.
 
 The following tools are installed:
-* composer (v1.7.2)
+* bash
+* composer (v1.8.3)
 * curl
 * git
 * subversion
@@ -25,6 +26,12 @@ The following PHP configuration is made:
 * `date.timezone = Europe/Paris`
 * `upload_max_filesize = 200M`
 * `post_max_size = 500M`
+
+Some aliases are in place:
+* `ll='ls -alhs'`
+* `la='ls -A'`
+* `l='ls -CF'`
+* `ls='ls --color=auto'`
 
 ## Builds commands
 * `make all`
