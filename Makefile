@@ -1,4 +1,4 @@
-TAGS=5.6 7.0 7.1 7.2
+TAGS=5.6 7.0 7.1 7.2 7.3
 
 define build_image
 	docker build --no-cache -t umanit/web:$(1) -f ./$(1)/Dockerfile .
