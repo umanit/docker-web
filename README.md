@@ -5,6 +5,7 @@
 * `7.0`
 * `7.1`
 * `7.2`
+* `7.3`
 
 ## Presentation
 Web images based on [umanit/php](https://hub.docker.com/r/umanit/php/) images.
@@ -40,6 +41,7 @@ Some aliases are in place:
 * `docker build --no-cache -t umanit/web:7.0 -f ./7.0/Dockerfile . && docker push umanit/web:7.0`
 * `docker build --no-cache -t umanit/web:7.1 -f ./7.1/Dockerfile . && docker push umanit/web:7.1`
 * `docker build --no-cache -t umanit/web:7.2 -f ./7.2/Dockerfile . && docker push umanit/web:7.2`
+* `docker build --no-cache -t umanit/web:7.3 -f ./7.3/Dockerfile . && docker push umanit/web:7.3`
 
 ## Notes
 We used [composer Dockerfile](https://github.com/composer/docker/blob/master/Dockerfile.template).
