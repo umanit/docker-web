@@ -49,3 +49,6 @@ We used [composer Dockerfile](https://github.com/composer/docker/blob/master/Doc
 By default, xdebug extension is enable because of umanit/php. With umanit/web,
 we disable it to gain performance. If you need to use it, just set the
 `ENABLE_XDEBUG` environment variable to `1` before building the image.
+
+On macOS a dynamic host "host.docker.internal" match the host machine. It's not
+available on Linux, so we add it.
