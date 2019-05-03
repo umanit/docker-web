@@ -32,4 +32,8 @@ RUN curl --silent --fail --location --retry 3 --output /tmp/installer.php --url 
 RUN ln -sf /dev/stdout /var/log/php/fpm-access.log \
 	&& ln -sf /dev/stderr /var/log/php/fpm-error.log
 
+# add entrypoint
+COPY ./docker-entrypoint.sh /
+ENTRYPOINT ["/bin/bash", "/docker-entrypoint.sh"]
+
 CMD ["php-fpm"]
