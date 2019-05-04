@@ -50,5 +50,8 @@ By default, xdebug extension is enable because of umanit/php. With umanit/web,
 we disable it to gain performance. If you need to use it, just set the
 `ENABLE_XDEBUG` environment variable to `1` before building the image.
 
-On macOS a dynamic host "host.docker.internal" match the host machine. It's not
+On macOS a dynamic host `host.docker.internal` match the host machine. It's not
 available on Linux, so we add it.
+
+A user `umanit` is created and used to launch php-fpm. The default UID is `1000`
+but it can be override with the build `ARG USER_ID`.
